@@ -1,0 +1,52 @@
+.profile-section {
+	padding: 4rem 0;
+	background-color: #f8f9fa;
+}
+
+.profile-card {
+	border: 1px solid #e9ecef;
+	border-radius: 0.5rem;
+	padding: 2rem;
+	text-align: center;
+	margin: 0 auto;
+	max-width: 50rem;
+}
+
+.profile-image {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 50%;
+	margin: 0 auto 2rem auto;
+	border: 2px solid #007bff;
+}
+
+.profile-name {
+	font-size: 2rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+}
+
+.profile-title {
+	font-size: 1.2rem;
+	font-weight: 300;
+	margin-bottom: 2rem;
+}
+
+.profile-list {
+	list-style: none;
+	padding: 0;
+	margin-bottom: 2rem;
+}
+
+.profile-item {
+	padding: 0.5rem 0;
+}
+
+.profile-item i {
+	margin-right: 0.5rem;
+}
+
+.profile-social {
+	margin-bottom: 0;
+}

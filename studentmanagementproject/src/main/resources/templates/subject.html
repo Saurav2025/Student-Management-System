@@ -1,0 +1,43 @@
+<th:block th:include="header.html"></th:block>
+<div class="container">
+	<div class="row">
+		<h1>Subject_List</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<a th:href="@{/subject/new}" class="btn btn-primary btn-lg mb-3">Add Subject</a>
+
+		</div>
+	</div>
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+			   
+				<th>Subject_Id</th>
+				<th>Subject_Name</th>
+				<th>Subject_Type</th>
+				<th style="width: 5%;">Subject_Grade</th>
+				<th>Subject_Department</th>
+				<th>Subject_Hours</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="subject: ${subject}">
+			<td th:text="${' SUB0' + subject.id}"></td>
+				<td th:text="${subject.subject_name}"></td>
+				<td th:text="${subject.subject_type}"></td>
+				<td th:text="${subject.subject_grade}"></td>
+				<td th:text="${subject.subjectDepartment}"></td>
+				<td th:text="${subject.subject_hours}"></td>
+				<td><a th:href="@{/subject/edit/{id}(id=${subject.id})}"
+					class="btn btn-primary ">Update</a> <a
+					th:href="@{/subject/{id}(id=${subject.id})}"
+					class="btn btn-danger ">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<th:block th:include="footer.html"></th:block>

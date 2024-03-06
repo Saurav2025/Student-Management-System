@@ -1,0 +1,68 @@
+
+
+
+<th:block th:include="header.html"></th:block>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div
+			class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class="text-center">Create New Faculty</h1>
+			<div class="card-body">
+				<form th:action="@{/facultySave}" th:object="${faculty}"
+					method="POST">
+					<div th:if="${error}" class="alert alert-danger" role="alert">
+                        <p th:text="${error}"></p>
+                    </div>
+					<div class="form-group">
+						<label>Faculty Name</label> <input type="text" name="faculty_Name"
+							th:field="*{faculty_Name}" class="form-control"
+							placeholder="Enter Faculty Name" />
+					</div>
+					<div class="form-group">
+						<label>Faculty Department</label> <select
+							name="faculty_department" th:field="*{faculty_department}"
+							class="form-control" onchange="fetchSubjects()">
+							<option value="">Select Faculty Department</option>
+							<option value="Mechanical">Mechanical</option>
+							<option value="Electrical">Electrical</option>
+							<option value="ElectronicAndCommunication">Electronic
+								and Communication</option>
+							<option value="IEEE">IEEE</option>
+							<option value="AI&ML">AI &amp; ML</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label>Faculty Subjecte</label> <select name="facultySubject"
+							id="faculty_subject" th:field="*{facultySubject}"
+							class="form-control">
+							<!-- Options will be added dynamically by JavaScript -->
+						</select>
+					</div>
+
+
+					<div class="form-group">
+						<label>Faculty Gmail</label> <input type="text"
+							name="faculty_gmail" th:field="*{facultyGmail}"
+							class="form-control" placeholder="Enter Faculty Gmail" />
+					</div>
+					<div class="form-group">
+						<label>Faculty Role</label> <select
+							name="facultyRole" th:field="*{facultyRole}"
+							class="form-control" >
+							<option value="">Select Faculty Role</option>
+							<option value="Admin">Admin</option>
+							<option value="Faculty">Faculty</option>
+						</select>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary btn-lg mb-3">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<th:block th:include="footer.html"></th:block>

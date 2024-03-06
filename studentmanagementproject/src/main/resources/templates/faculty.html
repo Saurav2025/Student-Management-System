@@ -1,0 +1,66 @@
+<th:block th:include="header.html"></th:block>
+<div class="container">
+	<div class="row">
+		<h1>Faculty List</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+
+			<style>
+.button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.button-container .btn {
+	margin-right: 10px;
+	/* Adjust this value to increase or decrease the gap */
+}
+</style>
+
+			<div class="button-container">
+				<a th:href="@{/faculty/new}" class="btn btn-primary btn-lg mb-3">Add
+					Faculty</a>
+
+				<tr th:each="faculty: ${faculty}">
+					<th:block th:if="${faculty.id == session.userId}">
+						<a th:href="@{/faculty/passedit/{id}(id=${faculty.id})}"
+							class="btn btn-primary btn-lg mb-3">Change Password</a>
+					</th:block>
+				</tr>
+			</div>
+
+
+
+		</div>
+	</div>
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+
+				<th>Faculty_Id</th>
+				<th>Faculty Name</th>
+				<th>Faculty Department</th>
+				<th>Faculty Subject</th>
+				<th>Faculty Gmail</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="faculty: ${faculty}">
+				<td th:text="${faculty.id}"></td>
+				<td th:text="${faculty.faculty_Name}"></td>
+				<td th:text="${faculty.faculty_department}"></td>
+				<td th:text="${faculty.facultySubject}"></td>
+				<td th:text="${faculty.facultyGmail}"></td>
+				<td><a th:href="@{/faculty/edit/{id}(id=${faculty.id})}"
+					class="btn btn-primary ">Update</a> <a
+					th:href="@{/faculty/{id}(id=${faculty.id})}"
+					class="btn btn-danger ">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<th:block th:include="footer.html"></th:block>

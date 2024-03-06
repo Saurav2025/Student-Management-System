@@ -1,0 +1,80 @@
+<th:block th:include="header.html"></th:block>
+<div class="container">
+	<div class="row">
+		<h1>Student Marks</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+
+			<style>
+.button-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.button-container .btn {
+	margin-right: 10px;
+	/* Adjust this value to increase or decrease the gap */
+}
+</style>
+
+
+
+
+
+		</div>
+	</div>
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+
+				<th>Student_Id</th>
+				<th>Student Name</th>
+				<th>Subject</th>
+				<th>Department</th>
+				<th>Faculty Name</th>
+				<th>1st Internal</th>
+				<th>2nd Internal</th>
+				<th>Final Marks</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="studentsubject: ${studentsubject}">
+
+				<td th:text="${' 4NM21MC0' +studentsubject.studentId}"></td>
+				<td th:text="${studentsubject.studentName}"></td>
+				<td th:text="${studentsubject.studentSubject}"></td>
+				<td th:text="${studentsubject.studentDepartment}"></td>
+				<td th:text="${studentsubject.facultName}"></td>
+				<td th:text="${studentsubject.firstInternal}"></td>
+				<td th:text="${studentsubject.secondInternal}"></td>
+				<td th:text="${studentsubject.finalExam}"></td>
+
+				<td>
+					<!-- If markStatus is 1, display disabled Update Mark and Mark Finalized buttons -->
+
+					<center>
+						<a th:if="${studentsubject.markStatus == 1}" class="btn btn-info"
+							th:disabled="true">Mark Finalized By Faculty</a> <br> <br>
+						<a th:if="${studentsubject.markStatus == 1}"
+							th:href="@{/AdminReEditMark/{id}(id=${studentsubject.id})}"
+							class="btn btn-info" th:disabled="true">Allow For ReEdit</a>
+
+
+					</center> <!-- -------------------------------------------- --> <!-- If markStatus is 0, display Finalize Marks and Update Marks buttons -->
+
+					<a th:if="${studentsubject.markStatus == 0}" class="btn btn-info"
+					th:disabled="true">Editing Unabled For Faculty</a>
+
+				</td>
+
+
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<th:block th:include="footer.html"></th:block>

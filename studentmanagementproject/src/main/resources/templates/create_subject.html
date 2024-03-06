@@ -1,0 +1,63 @@
+<th:block th:include="header.html"></th:block>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div
+			class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class="text-center">Create New Subject</h1>
+			<div class="card-body">
+				<form th:action="@{/subjectSave}" th:object="${subject}" method="POST">
+
+					<div class="form-group">
+						<label>Subject Name</label> <input type="text" name="subject_name"
+							th:field="*{subject_name}" class="form-control"
+							placeholder="Enter Subject Name" />
+					</div>
+					<div class="form-group">
+						<label>Subject Grade</label> <input type="text"
+							name="subject_grade" th:field="*{subject_grade}"
+							class="form-control" placeholder="Enter Subject Grade" />
+					</div>
+
+					
+					
+					<div class="form-group">
+						<label>Subject Type</label> <select
+							name="subject_department" th:field="*{subject_type}"
+							class="form-control">
+							<option value="Theory">Theory</option>
+							<option value="Practical">Practical</option>
+						</select>
+					</div>
+					
+					
+					<div class="form-group">
+						<label>Subject Hours</label> <input type="text"
+							name="subject_hours" th:field="*{subject_hours}"
+							class="form-control" placeholder="Enter Subject Hours" />
+					</div>
+
+					<div class="form-group">
+						<label>Student Department</label> <select
+							name="subjectDepartment" th:field="*{subjectDepartment}"
+							class="form-control">
+							<option value="">Select</option>
+							<option value="Mechanical">Mechanical</option>
+							<option value="Electrical">Electrical</option>
+							<option value="ElectronicAndCommunication">Electronic
+								and Communication</option>
+							<option value="IEEE">IEEE</option>
+							<option value="AI&ML">AI &amp; ML</option>
+						</select>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary btn-lg mb-3">Submit</button>
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<th:block th:include="footer.html"></th:block>

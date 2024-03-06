@@ -1,0 +1,51 @@
+<th:block th:include="header.html"></th:block>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div
+			class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class="text-center">Map Student Subject</h1>
+			<div class="card-body">
+				<form th:action="@{/studSubMap/{id} (id=${student.id})}"
+					th:object="${student}" method="POST">
+
+
+					<div class="form-group">
+						<label>Student Name</label> <input type="text" name="fullName"
+							id="fullName"
+							th:value="${student.firstName + ' ' + student.lastName}"
+							class="form-control" readonly="readonly"
+							placeholder="Student Name" />
+					</div>
+
+					<div class="form-group">
+						<label>Student Email Address</label> <input type="text"
+							name="email" id="email" th:field="*{email}" class="form-control"
+							placeholder="Enter Student Email Address" readonly="readonly" />
+					</div>
+					<div class="form-group">
+						<label>Student Email Address</label> <input type="text"
+							name="department" id="department" th:field="*{department}"
+							class="form-control" placeholder="Enter Student Email Address"
+							readonly="readonly" />
+					</div>
+
+
+					<div class="form-group">
+						<label>Student Subject</label> <input type="text" name="subject"
+							id="subject" th:value="''+ ${session.subject}+''"
+							class="form-control" readonly="readonly" />
+					</div>
+
+					<div class="box-footer">
+						<center>
+							<button type="submit" class="btn btn-primary btn-sm mb-3">Map
+								Subject</button>
+						</center>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

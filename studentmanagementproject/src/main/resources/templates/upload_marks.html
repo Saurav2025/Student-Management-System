@@ -1,0 +1,64 @@
+<th:block th:include="headerFaculty.html"></th:block>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div
+			class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<h1 class="text-center">Edit Faculty</h1>
+			<div class="card-body">
+				<form th:action="@{/studentMark/{id}(id=${studentsubject.id})}"
+					th:object="${studentsubject}" method="POST">
+
+					<div class="form-group">
+						<label>Student Name</label> <input type="text" name="faculty_Name"
+							th:field="*{studentName}" class="form-control" readonly />
+					</div>
+					<div class="form-group">
+						<label>Subject</label> <input type="text" name="faculty_Name"
+							th:field="*{studentSubject}" class="form-control" readonly />
+					</div>
+
+					<div class="form-group">
+						<label>Department</label> <input type="text"
+							name="faculty_subject" th:field="*{studentDepartment}"
+							class="form-control" readonly />
+					</div>
+
+
+					<div class="form-group">
+						<label>Faculty Name</label> <input type="text"
+							name="faculty_gmail" th:field="*{facultName}"
+							class="form-control" readonly />
+					</div>
+
+					<div class="form-group">
+						<label>1st Internal Marks</label> <input type="text"
+							name="FirstInternal" class="form-control"
+							placeholder="Enter 1st Internal Marks"
+							th:field="*{firstInternal}" />
+					</div>
+
+					<div class="form-group">
+						<label>1st Internal Marks</label> <input type="text"
+							name="SecondInternal" class="form-control"
+							placeholder="Enter 2nd Internal Marks"
+							th:field="*{secondInternal}" />
+					</div>
+					<div class="form-group">
+						<label>Final Marks</label> <input type="text" name="FinalInternal"
+							class="form-control" placeholder="Enter Final Marks"
+							th:field="*{finalExam}" />
+					</div>
+
+					<center>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary btn-lg mb-3">Submit
+								Marks</button>
+						</div>
+					</center>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

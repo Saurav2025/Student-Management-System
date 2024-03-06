@@ -1,0 +1,31 @@
+<th:block th:include="headerFaculty.html"></th:block>
+<!-- Profile -->
+<section class="pt-5 pb-5 profile-section">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="profile-card">
+					<img
+						src="https://lh3.googleusercontent.com/proxy/omzP2I_KtWBE4v72btOxaaPhxTXWIehWtjQMvOHOGaWBD4QNGts7jan7GPvKzMxSpS1Krsug_RjoOh8PgPaN6DrTVBirgJwyBuUQFYetZKmEVRnmH1q3zSXTFz3NhaPE"
+						alt="Profile Picture" class="profile-image">
+					<h2 class="profile-name" th:text=" ${session.name} "></h2>
+
+					<h5 class="profile-title">Department of Computer Science</h5>
+					<ul class="profile-list">
+						<li class="profile-item"><i class="fas fa-envelope"></i>
+							Email: <a th:text=" ${session.username} ">Login</a></li>
+					</ul>
+					<ul class="profile-social list-inline">
+						<li class="list-inline-item"><a href="#" class="text-muted"><i
+								class="fab fa-twitter"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="text-muted"><i
+								class="fab fa-facebook-f"></i></a></li>
+						<li class="list-inline-item"><a href="#" class="text-muted"><i
+								class="fab fa-linkedin-in"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<th:block th:include="footerFaculty.html"></th:block>
